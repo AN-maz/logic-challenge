@@ -43,24 +43,24 @@ export function buildURL(base, query = {}) {
 */
 
 // POST/PUT JSON yang benar
-// export async function sendJSON(url, { method = "POST", data, signal } = {}) {
-//   const res = await fetch(url, {
-//     method,
-//     headers: {
-//       "content-type": "application/json",
-//       accept: "application/json",
-//     },
-//     body: JSON.stringify(data),
-//     signal,
-//   });
+export async function sendJSON(url, { method = "POST", data, signal } = {}) {
+  const res = await fetch(url, {
+    method,
+    headers: {
+      "content-type": "application/json",
+      accept: "application/json",
+    },
+    body: JSON.stringify(data),
+    signal,
+  });
 
-//   if (!res.ok) {
-//     const text = await res.text().catch(() => "");
-//     throw new Error(`HTTP ${res.status} - ${text}`);
-//   }
+  if (!res.ok) {
+    const text = await res.text().catch(() => "");
+    throw new Error(`HTTP ${res.status} - ${text}`);
+  }
 
-//   // 204 no Content: jangan parse JSON
-//   if(res.status === 204 ) return null;
+  // 204 no Content: jangan parse JSON
+  if (res.status === 204) return null;
 
-//   return res.json();
-// }
+  return res.json();
+}
