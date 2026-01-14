@@ -64,3 +64,25 @@ export async function sendJSON(url, { method = "POST", data, signal } = {}) {
 
   return res.json();
 }
+
+export async function fetchWithTimeout(url, init = {}, timeoutMs = 8000) {
+  const controller = new AbortController();
+  const t = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    const res = await fetch(url, { ...init, signal: controller.signal });
+    return res;
+  } finally {
+    clearTimeout(t);
+  }
+}
+
+export async function getJsonWithTimeout(url, { timeoutMs = 8000 } = {}) {
+  const res = await fetchWithTimeout(url, {}, timeoutMs);
+
+  if (!res.ok) {
+    throw new Error(`HTTP ${res.status}`);
+  }
+
+  return res.json();
+}
