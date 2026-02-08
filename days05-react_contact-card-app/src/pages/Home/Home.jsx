@@ -18,39 +18,43 @@ const contacts = [
     }
 ];
 
-const ContactCard = ({contact}) => {
-    return(
+const ContactCard = ({ contact }) => {
+    return (
         <div className="contact-card">
             <img src={contact.photo} alt={contact.name} />
-            <h4>{contact.id}</h4>
-            <h4>{contact.name}</h4>
-            <h4>{contact.phone}</h4>
-            <h4>{contact.email}</h4>
+
+            <div className="contact-info">
+                <h3>{contact.name}</h3>
+                <p><strong>ID:</strong> {contact.id}</p>
+                <p><strong>Phone:</strong> {contact.phone}</p>
+                <p><strong>Email:</strong> {contact.email}</p>
+            </div>
+
         </div>
     );
 }
 
-const ContactList = ({addContact}) => {
-    const [name,setName] = useState('')
-    const [phone,setPhone] = useState('')
-    const [email,setEmail] = useState('')
+const ContactList = ({ addContact }) => {
+    const [name, setName] = useState('')
+    const [phone, setPhone] = useState('')
+    const [email, setEmail] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(!name || !phone || !email ) return
+        if (!name || !phone || !email) return
 
-        addContact({id: Date.now(), name,phone,email,photo: `https://i.pravatar.cc/100?u=${Date.now()}`})
+        addContact({ id: Date.now(), name, phone, email, photo: `https://i.pravatar.cc/100?u=${Date.now()}` })
 
         setName("")
         setPhone("")
         setEmail("")
     };
 
-    return(
+    return (
         <form onSubmit={handleSubmit} className='contact-form'>
-            <input placeholder='Nama' value={name} onChange={(e) => setName(e.target.value)} type='text'/>
-            <input placeholder='phone' value={phone} onChange={(e) => setPhone(e.target.value)} type='text'/>
-            <input placeholder='email' value={email} onChange={(e) => setEmail(e.target.value)} type='email'/>
+            <input placeholder='Nama' value={name} onChange={(e) => setName(e.target.value)} type='text' />
+            <input placeholder='phone' value={phone} onChange={(e) => setPhone(e.target.value)} type='text' />
+            <input placeholder='email' value={email} onChange={(e) => setEmail(e.target.value)} type='email' />
 
             <button type='submit'>Save</button>
         </form>
@@ -58,9 +62,9 @@ const ContactList = ({addContact}) => {
 }
 function Home() {
 
-    const [dataContacts,setDataContacts] = useState(contacts);
+    const [dataContacts, setDataContacts] = useState(contacts);
     const handleAddContact = (newContact) => {
-        setDataContacts([...dataContacts,newContact]);
+        setDataContacts([...dataContacts, newContact]);
     };
 
 
@@ -68,11 +72,11 @@ function Home() {
         <div className='home-container'>
             <h1>Contact List</h1>
 
-            <ContactList addContact={handleAddContact}/>
+            <ContactList addContact={handleAddContact} />
 
             <div className="contact-list">
                 {dataContacts.map((c) => (
-                    <ContactCard key={c.id} contact={c}/>
+                    <ContactCard key={c.id} contact={c} />
                 ))}
             </div>
 
