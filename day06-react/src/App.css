@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f6f9;
+}
+
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  text-align: center;
+}
+
+hr {
+  margin: 30px 0;
+}
+
+.card {
+  background: #f9fafb;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 8px 14px;
+  margin-top: 8px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #2563eb;
+  color: white;
+  transition: 0.2s;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+
+.btn {
+  background-color: #16a34a;
+}
+
+.btn:hover {
+  background-color: #15803d;
+}
+
+.success {
+  color: #16a34a;
+}
+
+.danger {
+  color: #dc2626;
+}
+
+.info {
+  color: #2563eb;
+}
+
+.warning {
+  background-color: #fef3c7;
+  color: #92400e;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.muted {
+  color: #6b7280;
+}
+
+.btn-group {
+  margin-top: 10px;
+}
