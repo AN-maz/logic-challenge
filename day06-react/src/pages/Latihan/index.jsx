@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import HasilUjian from "./Latihan02";
+import TodoList from "./Latihan03";
 
 function Latihan() {
 
@@ -100,6 +101,8 @@ function Latihan() {
 
                 {inputNilai !== '' && <HasilUjian nilai={inputNilai} />}
             </div>
+
+            <TodoList />
         </div>
     );
 }
