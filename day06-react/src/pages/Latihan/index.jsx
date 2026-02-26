@@ -1,10 +1,14 @@
 import { useState } from "react";
 
+import HasilUjian from "./Latihan02";
+
 function Latihan() {
 
     const [angka1, setAngka1] = useState('');
     const [angka2, setAngka2] = useState('');
     const [hasil, setHasil] = useState(null);
+
+    const [inputNilai, setInputNilai] = useState('');
 
     const hitung = (operasi) => {
         const a = parseFloat(angka1);
@@ -76,6 +80,26 @@ function Latihan() {
                     <strong>Hasil: </strong> {hasil}
                 </div>
             )}
+
+            <div className="materi-card">
+                <h2 className="materi-title">Latihan 2: Sistem Nilai</h2>
+                <p className="muted" style={{ marginBottom: '15px' }}>
+                    Coba Ketikan nilai dari 0 - 100
+                </p>
+
+                <input
+                    type="number"
+                    className="input-field"
+                    style={{ maxWidth: '250px' }}
+                    value={inputNilai}
+                    onChange={(e) => setInputNilai(e.target.value)}
+                    placeholder="Masukan nilai ujian..."
+                    min='0'
+                    max='100'
+                />
+
+                {inputNilai !== '' && <HasilUjian nilai={inputNilai} />}
+            </div>
         </div>
     );
 }
