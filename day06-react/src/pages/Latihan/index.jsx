@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import HasilUjian from "./Latihan02";
 import TodoList from "./Latihan03";
+import DaftarPost from "./Latihan04";
 
 function Latihan() {
 
@@ -82,8 +83,9 @@ function Latihan() {
                 </div>
             )}
 
+            <h2 className="materi-title">Latihan 2: Sistem Nilai</h2>
             <div className="materi-card">
-                <h2 className="materi-title">Latihan 2: Sistem Nilai</h2>
+
                 <p className="muted" style={{ marginBottom: '15px' }}>
                     Coba Ketikan nilai dari 0 - 100
                 </p>
@@ -102,7 +104,11 @@ function Latihan() {
                 {inputNilai !== '' && <HasilUjian nilai={inputNilai} />}
             </div>
 
+            <h2 className="materi-title">Latihan 3: Todo List</h2>
             <TodoList />
+
+            <h2 className="materi-title">Latihan 4: Daftar Post API</h2>
+            <DaftarPost />
         </div>
     );
 }
