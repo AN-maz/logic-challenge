@@ -17,7 +17,7 @@ function MovieList() {
     });
 
     const [filter, setFilter] = useState("semua");
-    const [seacrh, setsearch] = useState('');
+    const [search, setsearch] = useState('');
 
     useEffect(() => {
         localStorage.setItem('movies', JSON.stringify(films));
@@ -42,7 +42,7 @@ function MovieList() {
     const filterFilms = films.filter((f) => {
         const matchFilm = filter === 'semua' || f.kategori === filter;
 
-        const matchSearch = f.judul.toLowerCase().includes(seacrh.toLocaleLowerCase());
+        const matchSearch = f.judul.toLowerCase().includes(search.toLocaleLowerCase());
 
         return matchFilm && matchSearch;
     });
@@ -51,30 +51,49 @@ function MovieList() {
     const totalFavorit = films.filter((f) => f.favorit).length;
 
     return (
-        <div>
-            <h2>Total Films: {total}</h2>
-            <h3>Paporit: {totalFavorit}</h3>
+        <div className="movie-app-container">
 
-            <MovieForm onAdd={handleAdd} />
+            <div className="movie-stats">
+                <div className="stat-box">
+                    <span>Total Films</span>
+                    <h2>{total} 🎬</h2>
+                </div>
+                <div className="stat-box highlight">
+                    <span>Paporit</span>
+                    <h2>{totalFavorit} ❤️</h2>
+                </div>
+            </div>
 
-            <input
-                type="text"
-                placeholder="cari film"
-                value={seacrh}
-                onChange={(e) => setsearch(e.target.value)}
-            />
 
-            <select onChange={(e) => setFilter(e.target.value)}>
-                {kategoriUnik.map((k) => (<option key={k}>{k}</option>))}
-            </select>
+            <div className="form-section">
+                <MovieForm onAdd={handleAdd} />
+            </div>
 
-            {filterFilms.map((f) => (
-                <MovieCard
-                    key={f.id}
-                    film={f}
-                    onDelete={handleDelete}
-                    onToggle={handleToggle} />
-            ))}
+
+            <div className="movie-controls">
+                <input
+                    type="text"
+                    className="input-field search-input"
+                    placeholder=" Cari film..."
+                    value={search}
+                    onChange={(e) => setsearch(e.target.value)}
+                />
+                <select className="input-field filter-select" onChange={(e) => setFilter(e.target.value)}>
+                    {kategoriUnik.map((k) => (<option key={k} value={k}>{k}</option>))}
+                </select>
+            </div>
+
+
+            <div className="movie-grid">
+                {filterFilms.map((f) => (
+                    <MovieCard
+                        key={f.id}
+                        film={f}
+                        onDelete={handleDelete}
+                        onToggle={handleToggle}
+                    />
+                ))}
+            </div>
         </div>
     )
 }

@@ -1,22 +1,26 @@
 function MovieCard({ film, onDelete, onToggle }) {
-
     return (
-        <div className="card">
-            <h3>{film.judul}</h3>
-            <p>Kategori: {film.genre}</p>
-            <p>Rating: {'⭐'.repeat(film.rating)}</p>
+        <div className="movie-card">
+            <div className="movie-info">
+                <span className="movie-genre">{film.genre}</span>
+                <h3 className="movie-title">{film.judul}</h3>
+                <p className="movie-rating">{'⭐'.repeat(film.rating)}</p>
+                {film.favorit && <div className="badge-favorit">❤️ Paporit Pilem</div>}
+            </div>
 
-            {film.favorit && <span>Paporit pilem</span>}
-
-            <button onClick={() => onToggle(film.id)}>
-                {film.favorit ? 'Belum paporit' : 'sudah paporit'}
-            </button>
-
-            <button onClick={() => onDelete(film.id)}>
-                Hapus
-            </button>
+            <div className="card-actions">
+                <button 
+                    className={`btn ${film.favorit ? 'btn-outline' : 'btn-primary'}`} 
+                    onClick={() => onToggle(film.id)}
+                >
+                    {film.favorit ? 'Batal Paporit 💔' : 'Jadikan Paporit ❤️'}
+                </button>
+                <button className="btn btn-danger" onClick={() => onDelete(film.id)}>
+                    Hapus 🗑️
+                </button>
+            </div>
         </div>
     )
 }
 
-export default MovieCard
+export default MovieCard;

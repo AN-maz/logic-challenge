@@ -28,31 +28,34 @@ function MovieForm({ onAdd }) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                placeholder="judul"
-                value={judul}
-                onChange={(e) => setJudul(e.target.value)}
-            />
-
-            <input
-                type="text"
-                placeholder="kategori"
-                value={kategori}
-                onChange={(e) => setKategori(e.target.value)}
-            />
-
-            <input
-                type="number"
-                min="1"
-                max="5"
-                placeholder="Rating"
-                value={rating}
-                onChange={(e) => setRating(e.target.value)}
-            />
-
-            <button type="submit">Tambah Film</button>
+        <form className="movie-form" onSubmit={handleSubmit}>
+            <h3 className="form-title">Tambah Film Baru</h3>
+            <div className="form-inputs">
+                <input
+                    type="text"
+                    className="input-field"
+                    placeholder="Judul"
+                    value={judul}
+                    onChange={(e) => setJudul(e.target.value)}
+                />
+                <input
+                    type="text"
+                    className="input-field"
+                    placeholder="Kategori"
+                    value={kategori}
+                    onChange={(e) => setKategori(e.target.value)}
+                />
+                <input
+                    type="number"
+                    className="input-field"
+                    min="1"
+                    max="5"
+                    placeholder="Rating (1-5)"
+                    value={rating}
+                    onChange={(e) => setRating(e.target.value)}
+                />
+                <button className="btn btn-primary" type="submit">Tambah Film</button>
+            </div>
         </form>
     )
 }
