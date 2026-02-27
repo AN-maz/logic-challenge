@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import MovieForm from "./MovieForm";
 import MovieCard from './MovieCard'
+import './Challenge.css';
 
 const filmAwal = [
     { id: 1, judul: 'Laskar Pelangi', genre: 'Drama', rating: 5, favorit: false },
@@ -37,10 +38,10 @@ function MovieList() {
         )
     }
 
-    const kategoriUnik = ['semua', ...new Set(films.map((f) => f.kategori))];
+    const kategoriUnik = ['semua', ...new Set(films.map((f) => f.genre))];
 
     const filterFilms = films.filter((f) => {
-        const matchFilm = filter === 'semua' || f.kategori === filter;
+        const matchFilm = filter === 'semua' || f.genre === filter;
 
         const matchSearch = f.judul.toLowerCase().includes(search.toLocaleLowerCase());
 

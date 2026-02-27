@@ -1,0 +1,187 @@
+.movie-app-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* ================= STATISTIK ================= */
+.movie-stats {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-box {
+  flex: 1;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.stat-box span {
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-box h2 {
+  font-size: 2.5rem;
+  color: #0f172a;
+  margin: 0.5rem 0 0 0;
+}
+
+.stat-box.highlight {
+  background: #fff1f2;
+  border-color: #fecdd3;
+}
+
+.stat-box.highlight h2 {
+  color: #e11d48;
+}
+
+/* ================= FORM SECTION ================= */
+.form-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.form-title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #1e293b;
+  font-size: 1.2rem;
+}
+
+.form-inputs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap; /* Agar responsif di HP */
+}
+
+.form-inputs .input-field {
+  flex: 1;
+  min-width: 150px;
+  margin-bottom: 0; /* Menimpa margin default */
+}
+
+.form-inputs .btn {
+  white-space: nowrap;
+}
+
+/* ================= KONTROL PENCARIAN & FILTER ================= */
+.movie-controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.search-input {
+  flex: 2;
+  margin-bottom: 0;
+}
+
+.filter-select {
+  flex: 1;
+  margin-bottom: 0;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* ================= GRID DAFTAR FILM ================= */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ================= MOVIE CARD ================= */
+.movie-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.movie-genre {
+  display: inline-block;
+  background: #e0e7ff;
+  color: #4f46e5;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.movie-title {
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+  color: #1e293b;
+}
+
+.movie-rating {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.badge-favorit {
+  background: #fecdd3;
+  color: #be123c;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+/* ================= UTILITY BUTTONS ================= */
+.btn-outline {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+}
+
+.btn-outline:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+/* Media Query untuk HP */
+@media screen and (max-width: 600px) {
+  .movie-stats {
+    flex-direction: column;
+  }
+  .movie-controls {
+    flex-direction: column;
+  }
+  .form-inputs {
+    flex-direction: column;
+  }
+}

@@ -3,19 +3,19 @@ import { useState } from "react";
 function MovieForm({ onAdd }) {
 
     const [judul, setJudul] = useState('');
-    const [kategori, setKategori] = useState('');
+    const [genre, setGenre] = useState('');
     const [rating, setRating] = useState(0);
 
     function handleSubmit(e) {
         e.preventDefault();
 
-        if (!judul || !kategori || !rating) return alert('Semua field harus diisi');
+        if (!judul || !genre || !rating) return alert('Semua field harus diisi');
 
 
         const bukuBaru = {
             id: Date.now(),
             judul,
-            kategori,
+            genre,
             rating: Number(rating),
             favorit: false,
         };
@@ -23,7 +23,7 @@ function MovieForm({ onAdd }) {
         onAdd(bukuBaru);
 
         setJudul("");
-        setKategori("");
+        setGenre("");
         setRating("");
     }
 
@@ -41,9 +41,9 @@ function MovieForm({ onAdd }) {
                 <input
                     type="text"
                     className="input-field"
-                    placeholder="Kategori"
-                    value={kategori}
-                    onChange={(e) => setKategori(e.target.value)}
+                    placeholder="Genre"
+                    value={genre}
+                    onChange={(e) => setGenre(e.target.value)}
                 />
                 <input
                     type="number"
